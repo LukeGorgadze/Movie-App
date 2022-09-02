@@ -8,17 +8,7 @@ const checkUser = require("./middlewares/authmiddlewares")
 const cookieParser = require("cookie-parser")
 const app = express();
 
-app.use(express.static(path.join(__dirname, "/Client/build")));
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/Client/build', 'index.html'));
-});
-
-const port_number = (process.env.PORT || 5000);
-app.listen(port_number,(req,res) => {
-  console.log("server started")
-
-})
 //Up
 
 mongoose.connect(process.env.MONGO_URI, {
@@ -39,3 +29,15 @@ mongoose.connect(process.env.MONGO_URI, {
 app.use(cookieParser())
 app.use(express.json());
 app.use("/",authRoutes)
+
+app.use(express.static(path.join(__dirname, "/Client/build")));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/Client/build', 'index.html'));
+});
+
+const port_number = (process.env.PORT || 5000);
+app.listen(port_number,(req,res) => {
+  console.log("server started")
+
+})
