@@ -2,7 +2,7 @@ const express = require("express")
 require('dotenv').config();
 const cors = require("cors")
 const mongoose = require("mongoose")
-import * as path from 'path'
+const path = require('path')
 const authRoutes = require("./routes/AuthRoutes")
 const checkUser = require("./middlewares/authmiddlewares")
 const cookieParser = require("cookie-parser")
