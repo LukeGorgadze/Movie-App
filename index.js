@@ -37,7 +37,9 @@ app.get('*', (req, res) => {
 });
 
 const port_number = (process.env.PORT || 5000);
+
 app.listen(port_number,(req,res) => {
-  console.log("server started")
+  var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+  console.log("server started", fullUrl)
 
 })
