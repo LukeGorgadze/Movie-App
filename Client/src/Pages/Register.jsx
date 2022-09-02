@@ -15,7 +15,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axiosInstance.post("http://localhost:5000/register", {
+      const { data } = await axiosInstance.post("/register", {
         ...values,
       },
       {
