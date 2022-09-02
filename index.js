@@ -14,7 +14,8 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '/Client/build', 'index.html'));
 });
 
-app.listen(5000,(req,res) => {
+var port_number = server.listen(process.env.PORT || 5000);
+app.listen(port_number,(req,res) => {
   console.log("server started")
 
 })
